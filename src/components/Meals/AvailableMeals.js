@@ -23,13 +23,16 @@ const AvailableMeals = () => {
 
       const loadedMeals = [];
 
+
       for (const key in responseData) {
-        loadedMeals.push({
-          id: key,
-          name: responseData[key].name,
-          description: responseData[key].description,
-          price: responseData[key].price,
-        });
+        if (responseData[key] !==  responseData.orders) {
+          loadedMeals.push({
+            id: key,
+            name: responseData[key].name,
+            description: responseData[key].description,
+            price: responseData[key].price,
+          });
+        }
       }
 
       setMeals(loadedMeals);
